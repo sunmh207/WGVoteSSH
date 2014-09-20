@@ -68,7 +68,18 @@
 			<result name="ps_voteform">/WEB-INF/jsp/voter/ps_voteform.jsp</result>
 			<result name="vote_success">/WEB-INF/jsp/voter/vote_success.jsp</result>
 		</action>
-		
+		<action name="my_vote" class="com.stanley.voter.action.MyVoteAction" method="list">
+			<interceptor-ref name="myStackNoAuth"></interceptor-ref>
+			<result name="success">/WEB-INF/jsp/voter/my_votelist.jsp</result>
+		</action>
+		<action name="my_ps_candidate" class="com.stanley.vote.action.PSCandidateAction" method="list">
+			<interceptor-ref name="myStackNoAuth"></interceptor-ref>  
+			<result name="success">/WEB-INF/jsp/voter/my_ps_candidatelist.jsp</result>
+		</action>
+		<action name="my_tj_candidate" class="com.stanley.vote.action.PSCandidateAction" method="list">
+			<interceptor-ref name="myStackNoAuth"></interceptor-ref>  
+			<result name="success">/WEB-INF/jsp/voter/my_tj_candidatelist.jsp</result>
+		</action>
 	</package>
 	<!-- <include file="console.struts.xml"></include> -->
 	<include file="vote.struts.xml"></include>

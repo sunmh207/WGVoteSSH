@@ -22,7 +22,7 @@ import com.stanley.console.domain.User;
 
 public class JITActionBase extends ActionSupport implements ServletRequestAware, SessionAware {
 
-	protected BaseService baseService;
+	protected BaseService baseService =(BaseService)getService("voteService");
 	/**
 	 * 
 	 */

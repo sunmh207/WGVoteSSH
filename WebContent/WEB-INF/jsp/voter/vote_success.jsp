@@ -20,6 +20,7 @@
 	font-size: 24px;
 }
 </style>
+<meta http-equiv="refresh" content="30;url=${root}/toupiao.do">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
   <p>&nbsp;</p>
   <p>&nbsp;</p>
   <p><img src="images/200782117178994_2.jpg" alt="" width="152" height="141" />已成功完成投票，感谢您的参与！
-		<a class="ui_icon_person" href="${root}/toupiao.do"> 返回继续投票</a>&nbsp;&nbsp;
+		<a class="ui_icon_person" href="${root}/toupiao.do"> 返回继续投票 (30秒后自动跳转到投票页面)</a>&nbsp;&nbsp;
   </p>
   <p>&nbsp;</p>
 </div>

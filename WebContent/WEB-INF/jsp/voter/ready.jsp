@@ -51,18 +51,18 @@ var id=window.setTimeout(refresh,5000);
 <s:hidden name="vote.id"/>
 <%-- <s:hidden name="voter.id"/> --%>
     <div class="bg">
-    	
     
-   	<div class="message">
-   	<s:if test="vote==null||vote.name== null">
-   		暂时没有投票信息！
-   	</s:if>
-   	<s:else>
-   		投票名称: <s:property value="vote.name"/><br>   		
-   		<s:property value="message"/>
-   	</s:else>	
- 	</div>
-   	
+	   	<div class="message">
+	   	<s:if test="vote==null||vote.name== null">
+	   		暂时没有投票信息！
+	   	</s:if>
+	   	<s:else>
+	   		投票名称: <s:property value="vote.name"/><br>   		
+	   		<s:property value="message"/>
+	   	</s:else>	
+	   	
+	   	<a href="${root}/my_vote.do" target="_blank"> 我今天的投票</a>
+	 	</div>
    	
     </div>
 </form>
