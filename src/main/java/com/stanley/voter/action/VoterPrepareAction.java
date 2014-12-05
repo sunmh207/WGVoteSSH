@@ -2,13 +2,11 @@ package com.stanley.voter.action;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import java.util.Map;
 
 import com.opensymphony.xwork2.Preparable;
-import com.stanley.common.JitongConstants;
 import com.stanley.common.action.JITActionBase;
 import com.stanley.common.exception.JTException;
 import com.stanley.common.util.DateUtil;
@@ -28,6 +26,7 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 	private String message;
 	private String authCode;
 	private String authCodeAlert;
+	List<Ticket> ticketlist = new ArrayList<Ticket>();
 	
 	public void prepare() throws JTException {
 		message=null;
@@ -131,6 +130,8 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 		 }
 		return null;
 	}
+	
+	
 	public String submit() throws JTException {
 		if (vote != null && !StringUtil.isEmpty(vote.getId())) {
 			vote = (Vote) voteService.findBoById(Vote.class, vote.getId());
@@ -175,7 +176,7 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 		
 		Enumeration paraNames = request.getParameterNames();
 		//Map paraMap =request.getParameterMap();
-		List<Ticket> ticketlist = new ArrayList<Ticket>();
+		ticketlist = new ArrayList<Ticket>();
 		while(paraNames.hasMoreElements()){
 			String parameter = (String)paraNames.nextElement();
 			if(parameter.startsWith("ticket_")){
@@ -200,6 +201,7 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 			}
 		} 
 		voteService.saveTickets(ticketlist); 
+		//this.getSession().put("ticketlist", ticketlist);
 		voteService.mergeBo(voter); 
 		return "vote_success";
 	}
@@ -242,6 +244,14 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 
 	public void setAuthCodeAlert(String authCodeAlert) {
 		this.authCodeAlert = authCodeAlert;
+	}
+
+	public List<Ticket> getTicketlist() {
+		return ticketlist;
+	}
+
+	public void setTicketlist(List<Ticket> ticketlist) {
+		this.ticketlist = ticketlist;
 	}
 
 }
