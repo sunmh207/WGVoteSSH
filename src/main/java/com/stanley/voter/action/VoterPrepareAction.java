@@ -26,6 +26,8 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 	//@Autowired
 	private VoteService voteService;
 	private String message;
+	private String authCode;
+	private String authCodeAlert;
 	
 	public void prepare() throws JTException {
 		message=null;
@@ -72,24 +74,35 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 		if(vote!=null&&!StringUtil.isEmpty(vote.getId())){
 			if(Vote.STATUS_2_READY.equals(vote.getStatus())){	
 				String ip = request.getRemoteAddr();
-				message="本机IP:"+ip+". 正在等待管理员启动投票程序...";
-				 Voter v= new Voter();
+				 message="本机IP:"+ip+". 正在等待管理员启动投票程序...";
+				
+				 if(authCode!=null&&authCode.equals(vote.getAuthCode())){
+					 Voter v= new Voter();					 
+					 String host = request.getRemoteHost();
+					 v.setReadyTime(DateUtil.getCurrentTime());
+					 v.setIp(ip);
+					 v.setHost(host);
+					 voteService.saveVoter(vote, v);
+					 authCodeAlert="验证码正确";
+				 }else{
+					 authCodeAlert="验证码错误";
+				 }
 				 
-				 String host = request.getRemoteHost();
-				 v.setReadyTime(DateUtil.getCurrentTime());
-				 v.setIp(ip);
-				 v.setHost(host);
-				 voteService.saveVoter(vote, v); 
 				 return "ready";
 			}else if(Vote.STATUS_3_INPROGRESS.equals(vote.getStatus())){
-				 voter = new Voter();
-				 String ip = request.getRemoteAddr();
-				 String host = request.getRemoteHost();
-				 voter.setReadyTime(DateUtil.getCurrentTime());
-				 voter.setIp(ip);
-				 voter.setHost(host);
-				 voteService.saveVoter(vote, voter); 
-				 return gotoVoteFormPage(vote);
+				 if(authCode!=null&&authCode.equals(vote.getAuthCode())){
+					 voter = new Voter();
+					 String ip = request.getRemoteAddr();
+					 String host = request.getRemoteHost();
+					 voter.setReadyTime(DateUtil.getCurrentTime());
+					 voter.setIp(ip);
+					 voter.setHost(host);
+					 voteService.saveVoter(vote, voter); 
+					 return gotoVoteFormPage(vote);
+				 }else{
+					 message="验证码错误，不能投票。";
+					 return "ready";
+				 }
 			}else{
 				message="投票信息已过期!";
 				//vote=null;
@@ -213,6 +226,22 @@ public class VoterPrepareAction extends JITActionBase implements Preparable {
 
 	public void setVoter(Voter voter) {
 		this.voter = voter;
+	}
+
+	public String getAuthCode() {
+		return authCode;
+	}
+
+	public void setAuthCode(String authCode) {
+		this.authCode = authCode;
+	}
+
+	public String getAuthCodeAlert() {
+		return authCodeAlert;
+	}
+
+	public void setAuthCodeAlert(String authCodeAlert) {
+		this.authCodeAlert = authCodeAlert;
 	}
 
 }

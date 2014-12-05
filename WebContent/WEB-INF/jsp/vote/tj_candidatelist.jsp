@@ -173,5 +173,6 @@ function fPopUpCandidateDlg(voteId) {
 		</tr>
 	</s:iterator>
 </table>
+<br>
 </body>
 </html>

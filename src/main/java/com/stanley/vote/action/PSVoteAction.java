@@ -74,6 +74,7 @@ public class PSVoteAction extends JITActionBase implements Preparable {
 			vote.setCreateTime(DateUtil.getCurrentTime());
 			vote.setType(Vote.TYPE_PS);
 			vote.setStatus(Vote.STATUS_1_NEW);
+			vote.setAuthCode(StringUtil.createAuthCode());
 			service.createBo(vote);
 		} else {
 			service.updateBo(vote);

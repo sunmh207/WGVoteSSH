@@ -1,0 +1,5 @@
+1. 执行SQL
+
+  - ALTER TABLE wgvote.vote ADD (auth_code VARCHAR(10))
+
+2. 更新war包 并重启tomcat

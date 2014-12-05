@@ -1,0 +1,19 @@
+因为表有主外键关系，所以清除数据库需要按以下顺序
+
+delete from ticket;
+delete from voter;
+
+//本身的外键指向自己的主键，先把‘子’数据删除
+delete from candidate where primary_vote_candidate_id is not null;
+delete from candidate;
+
+//本身的外键指向自己的主键，先把‘子’数据删除
+delete from vote where primary_vote_id is not null;
+delete from vote;
+
+
+增加数据是应按照相反的方向
+insert into vote;
+insert into candidate;
+insert into voter;
+insert into ticket;

@@ -57,11 +57,12 @@ var id=window.setTimeout(refresh,5000);
 	   		暂时没有投票信息！
 	   	</s:if>
 	   	<s:else>
-	   		投票名称: <s:property value="vote.name"/><br>   		
+	   		投票名称: <s:property value="vote.name"/><br> 
+	   		请输入验证码: <s:textfield name="authCode" value="%{authCode}" size="10"/> &nbsp;<s:property value="authCodeAlert"/> <br> 		
 	   		<s:property value="message"/>
 	   	</s:else>	
-	   	
-	   	<a href="${root}/my_vote.do" target="_blank"> 我今天的投票</a>
+	   	<br>
+	   	<a href="${root}/my_vote.do" target="_blank">查看我今天的投票</a>
 	 	</div>
    	
     </div>

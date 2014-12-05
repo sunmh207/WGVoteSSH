@@ -51,8 +51,11 @@
     </tr>  
 </table>
 <br>
-
 <a class="return" onclick="javascript: window.history.go(-1)" >返回</a> 
+<form id="searchForm" action="${root}/vote/voter.do">
+	<s:hidden name="vote.id" value="%{vote.id}" />
+	<html:pagination exportExcel="false"/>
+</form>
 <table width="100%" class="table" align="center" cellpadding="1" cellspacing="0" bgcolor="#FFFFFF">
 	<tr>
        <td align="center" class="td_header">序号</td>

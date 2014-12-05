@@ -69,6 +69,10 @@ public class Vote {
 	@JoinColumn(name = "primary_vote_id", nullable = true)
 	private Vote primaryVote;
 	
+	
+	@Column(name="auth_code")
+	private String authCode;
+	
 	public String getId() {
 		return id;
 	}
@@ -181,6 +185,14 @@ public class Vote {
 
 	public void setPrimaryVote(Vote primaryVote) {
 		this.primaryVote = primaryVote;
+	}
+
+	public String getAuthCode() {
+		return authCode;
+	}
+
+	public void setAuthCode(String authCode) {
+		this.authCode = authCode;
 	}
 
 	

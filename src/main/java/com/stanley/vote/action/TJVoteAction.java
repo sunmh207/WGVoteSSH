@@ -73,6 +73,7 @@ public class TJVoteAction extends JITActionBase implements Preparable {
 			vote.setCreateTime(DateUtil.getCurrentTime());
 			vote.setType(Vote.TYPE_TJ);
 			vote.setStatus(Vote.STATUS_1_NEW);
+			vote.setAuthCode(StringUtil.createAuthCode());
 			service.createBo(vote);
 		} else {
 			service.updateBo(vote);

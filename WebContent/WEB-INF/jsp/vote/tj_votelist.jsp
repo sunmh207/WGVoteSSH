@@ -37,6 +37,7 @@ function fStopCheck(){
        <td class="td_header">创建人</td>
        <td class="td_header">创建时间</td>
        <td class="td_header">类型</td>
+       <td class="td_header">验证码</td>
        <td class="td_header">状态</td>
        <td class="td_header">操作</td>
      </tr>
@@ -52,6 +53,7 @@ function fStopCheck(){
 				<td align="left"><s:property value="creator"/></td>
 				<td align="left"><s:property value="createTime"/></td>
 				<td align="left"><s:property value="type"/></td>
+				<td align="left"><s:property value="authCode"/></td>
 				<td align="left"><s:property value="statusTXT"/></td>
 				<td align="center">
 					<a class="user-edit" href="${root}/vote/tj_voteinput!input.do?vote.id=<s:property value="id"/>">编辑</a>&nbsp;&nbsp;
@@ -72,6 +74,7 @@ function fStopCheck(){
 			<td align="left"><s:property value="creator"/></td>
 			<td align="left"><s:property value="createTime"/></td>
 			<td align="left"><s:property value="type"/></td>
+			<td align="left"><s:property value="authCode"/></td>
 			<td align="left"><s:property value="statusTXT"/></td>
 			<td align="center">
 				<a class="ui_icon_person" href="${root}/vote/tj_candidate.do?vote.id=<s:property value="id"/>" >候选人</a>&nbsp;&nbsp;
@@ -90,12 +93,16 @@ function fStopCheck(){
 			<td align="left"><s:property value="creator"/></td>
 			<td align="left"><s:property value="createTime"/></td>
 			<td align="left"><s:property value="type"/></td>
+			<td align="left"><s:property value="authCode"/></td>
 			<td align="left"><s:property value="statusTXT"/></td>
 			<td align="center">
 				<a class="ui_icon_person" href="${root}/vote/tj_candidate.do?vote.id=<s:property value="id"/>" >候选人</a>&nbsp;&nbsp;
 				<a class="ui_icon_person" href="${root}/vote/voter.do?vote.id=<s:property value="id"/>" >投票人</a>&nbsp;&nbsp;
 				<a class="statics" href="${root}/vote/tj_vote!stop.do?vote.id=<s:property value="id"/>"  onclick="return fStopCheck()">结束投票</a>&nbsp;&nbsp;
 			</td>
+		</tr>
+		<tr bgcolor="#FFFFFF">
+			<td  class="td_body" colspan="11">直接投票地址: http://服务器IP:端口/toupiao.do?vote.id=<s:property value="id"/>&authCode=<s:property value="authCode"/></td>
 		</tr>
 		</s:if>
 	 	<s:if test="status == \"4.done\"">
@@ -108,6 +115,7 @@ function fStopCheck(){
 			<td align="left" class='td_body'><s:property value="creator"/></td>
 			<td align="left" class='td_body'><s:property value="createTime"/></td>
 			<td align="left" class='td_body'><s:property value="type"/></td>
+			<td align="left"><s:property value="authCode"/></td>
 			<td align="left" class='td_body'><s:property value="statusTXT"/></td>
 			<td align="center" class='td_body'>
 				<a class="ui_icon_person" href="${root}/vote/tj_candidate.do?vote.id=<s:property value="id"/>" >统计显示</a>&nbsp;&nbsp;
@@ -126,6 +134,7 @@ function fStopCheck(){
 			<td align="left"><s:property value="creator"/></td>
 			<td align="left"><s:property value="createTime"/></td>
 			<td align="left"><s:property value="type"/></td>
+			<td align="left"><s:property value="authCode"/></td>
 			<td align="left"><s:property value="statusTXT"/></td>
 			<td align="center">
 				<a class="ui_icon_person" href="${root}/vote/tj_candidate.do?vote.id=<s:property value="id"/>" >统计显示</a>&nbsp;&nbsp;
@@ -144,6 +153,7 @@ function fStopCheck(){
 			<td align="left"><s:property value="creator"/></td>
 			<td align="left"><s:property value="createTime"/></td>
 			<td align="left"><s:property value="type"/></td>
+			<td align="left"><s:property value="authCode"/></td>
 			<td align="left"><s:property value="statusTXT"/></td>
 			<td align="center">
 				<a class="ui_icon_person" href="${root}/vote/tj_candidate.do?vote.id=<s:property value="id"/>" >统计显示</a>&nbsp;&nbsp;

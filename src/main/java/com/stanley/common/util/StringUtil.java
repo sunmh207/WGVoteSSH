@@ -86,8 +86,8 @@ public class StringUtil {
 	}
 
 	
-	public static String randomString() {
-		return randomString(6);
+	public static String createAuthCode() {
+		return randomString(4);
 	}
 
 	public static String randomString(int length) {
@@ -168,15 +168,15 @@ public class StringUtil {
 		// System.out.println(StringUtil.md5("Sunr!se.123Pr0d"));
 		// System.out.println(StringUtil.md5("Sunset.123$"));
 		// System.out.println("abc".substring(0, 3));
-		List<String> l = StringUtil.getMacAdds();
+		//List<String> l = StringUtil.getMacAdds();
 		/*System.out.println(Arrays.toString(l.toArray()));
 		System.out.println(lisence("3c-97-e-ec-c9-74"));
 		System.out.println(lisence("e4-1f-13-61-b9-78"));*/
-		System.out.println(lisence("C8-0A-A9-DB-16-F7"));
-		System.out.println(lisence("c8-0a-a9-db-16-f7"));
+		//System.out.println(lisence("C8-0A-A9-DB-16-F7"));
+		//System.out.println(lisence("c8-0a-a9-db-16-f7"));
 		//System.out.println(matchLisence("9ce35c305e"));
 		//System.out.println(matchLisence("1234567890"));
-		
+		System.out.println(createAuthCode());
 	}
 
 }
