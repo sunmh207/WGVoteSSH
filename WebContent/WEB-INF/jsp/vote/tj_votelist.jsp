@@ -115,7 +115,7 @@ function fStopCheck(){
 			<td align="left" class='td_body'><s:property value="creator"/></td>
 			<td align="left" class='td_body'><s:property value="createTime"/></td>
 			<td align="left" class='td_body'><s:property value="type"/></td>
-			<td align="left"><s:property value="authCode"/></td>
+			<td align="left" class='td_body'><s:property value="authCode"/></td>
 			<td align="left" class='td_body'><s:property value="statusTXT"/></td>
 			<td align="center" class='td_body'>
 				<a class="ui_icon_person" href="${root}/vote/tj_candidate.do?vote.id=<s:property value="id"/>" >统计显示</a>&nbsp;&nbsp;
