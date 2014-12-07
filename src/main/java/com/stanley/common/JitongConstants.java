@@ -33,6 +33,7 @@ public class JitongConstants {
 	public static String ADMIN="admin";
 	public static String PASSWORD="123";
 	public static String lisence="123";
+	public static String expired="2015-03-10";
 	
 	
 	
@@ -46,6 +47,7 @@ public class JitongConstants {
 			ADMIN = getProp("ADMIN", "admin");
 			PASSWORD = getProp("PASSWORD", "123");
 			lisence = getProp("lisence", "123");
+			expired = getProp("expired", "2015-03-20");
 		} catch (Exception ioe) {
 			ioe.printStackTrace();
 		} finally {

@@ -9,11 +9,15 @@ public class CacheServlet extends javax.servlet.http.HttpServlet implements java
 
 	public void init(ServletConfig config) {		
 		loadData();
-		if(!StringUtil.matchLisence(JitongConstants.lisence)){
+		/*if(!StringUtil.matchLisence(JitongConstants.lisence)){
 			System.out.println("Lisence is invalid.");
 			System.exit(1);
 		}else{
 			System.out.println("Lisence is valid.");
+		}*/
+		if (StringUtil.expired()){
+			System.out.println("expired.");
+			System.exit(1);
 		}
 	}
 

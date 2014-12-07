@@ -5,11 +5,16 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Random;
 import java.util.StringTokenizer;
+
+import com.stanley.common.JitongConstants;
 
 public class StringUtil {
 	// private static final String symbols =
@@ -162,6 +167,18 @@ public class StringUtil {
 		
 		return false;*/
 	} 
+	
+	public static boolean expired(){
+		try{
+			Calendar expiredDate =DateUtil.toCalendar(JitongConstants.expired, "yyyy-MM-dd");
+			if(Calendar.getInstance().after(expiredDate)){
+				return true;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public static void main(String[] args) throws Exception {
 		// System.out.println(cutEndWithEllipsis("abcdeft",5));
