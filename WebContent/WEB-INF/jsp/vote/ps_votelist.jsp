@@ -121,7 +121,7 @@ function fStopCheck(){
 			<td align="center" class='td_body'>
 				<a class="ui_icon_person" href="${root}/vote/ps_candidate.do?vote.id=<s:property value="id"/>" >统计显示</a>&nbsp;&nbsp;
 				<a class="ui_icon_person" href="${root}/vote/voter.do?vote.id=<s:property value="id"/>" >投票人</a>&nbsp;&nbsp;
-				<a class="statics" href="${root}/vote/ps_vote.do?primaryVote.id=<s:property value="id"/>" >二次投票</a>&nbsp;&nbsp;
+				<a class="statics" href="${root}/vote/ps_vote.do?primaryVote.id=<s:property value="id"/>" >二次投票</a>&nbsp;&nbsp;				
 			</td>
 		</tr>
 		</s:if>

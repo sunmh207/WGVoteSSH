@@ -84,6 +84,9 @@ function fPopUpCandidateDlg(voteId) {
 <s:if test="vote.status == \"4.done\"&&vote.primaryVote==null">
 <a class="statics" href="${root}/vote/ps_vote.do?primaryVote.id=<s:property value="vote.id"/>" >二次投票</a>&nbsp;&nbsp;
 </s:if>
+
+<a class="statics" href="${root}/vote/vote_result_table.do?vote.id=<s:property value="vote.id"/>" >投票明细</a>&nbsp;&nbsp;
+
 <a class="return" href="${root}/vote/ps_vote.do?primaryVote.id=<s:property value="vote.primaryVote.id"/>" >返回</a> 
 <html:pagination exportExcel="true"/>
 </form>

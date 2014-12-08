@@ -67,6 +67,10 @@
 			<result name="input">/WEB-INF/jsp/vote/ps_candidateform.jsp</result>
 		</action>
 		
+		<action name="vote_result_table" class="com.stanley.vote.action.VoteResultTableAction" method="list">
+			<result name="success">/WEB-INF/jsp/vote/vote_result_table.jsp</result>
+		</action>
+		
 		<action name="voter" class="com.stanley.vote.action.VoterAction" method="list">
 			<result name="success">/WEB-INF/jsp/vote/voterlist.jsp</result>
 		</action>

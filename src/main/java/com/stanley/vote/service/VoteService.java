@@ -2,7 +2,6 @@ package com.stanley.vote.service;
 
 import java.util.List;
 
-import org.hibernate.Transaction;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.stanley.common.exception.JTException;
 import com.stanley.common.service.BaseService;
 import com.stanley.common.util.DateUtil;
+import com.stanley.common.util.StringUtil;
 import com.stanley.vote.domain.Candidate;
 import com.stanley.vote.domain.Ticket;
 import com.stanley.vote.domain.Vote;
@@ -61,6 +61,7 @@ public class VoteService extends BaseService {
 		v.setStatus(Vote.STATUS_1_NEW);
 		v.setPrimaryVote(primaryVote);
 		v.setCreateTime(DateUtil.getCurrentTime());
+		v.setAuthCode(StringUtil.createAuthCode());
 		this.createBo(v);
 		return v;
 	}
